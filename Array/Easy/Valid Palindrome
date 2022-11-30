@@ -1,0 +1,36 @@
+//A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers
+
+//Input: s = "A man, a plan, a canal: Panama"
+//Output: true
+//Explanation: "amanaplanacanalpanama" is a palindrome.
+
+
+//         A man, a plan, a canal: Panama   ---string
+//1st--    a man, a plan, a canal: panama   ---convert to lowercase
+//2nd--    amanaplanacannalpanama          ---remove or delete all the special characters and commas
+//3rd--    
+
+
+
+class Solution {
+public:
+    bool isPalindrome(string s)
+{     
+      s=s.toLowerCase(); 
+      StringBuilder b = new StringBuilder();
+
+       for(int i=0;i<s.length();i++)
+       {
+        if(Character.isDigit(s.charAt(i)) || Character.isLetter(s.charAt(i)))    
+        b.append(s..charAt(i)); 
+       }
+       //b---->   amanaplanacannalpanama 
+
+       int n=b.length()-1;
+       for(int i=0;i<b.length()/2;i++)
+       {
+        if(b.charAt(i)!=b.charAt(n-i))
+        return false;
+       }
+       return true;
+    }
